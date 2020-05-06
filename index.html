@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Anne Frank</title>
-<link rel="stylesheet" href="mystyle.css">
+<style>
+	body {
+	background-color: powderblue;
+}
+</style>
+	<title>Javascript Page 1</title>
 </head>
 <body>
-<h1> Who was Anne Frank?</h1>
-<h5>Jewish Anne Frank hid in 1942 from the nazi’s during the occupation of the Netherlands. Two years later she was discovered. In 1945 she died in the Bergen-Belsen concentration camp.</h5>
-<p>
-	<a href="aboutus.html">about Anne Frank</a>
-</p>
-<img src="download.jpg" width="800">
+
+
+<h1>Find the area of a rectangle!</h1>
+
+<a href="index2.html" target="_blank">click here to find an activity to do today!</a>
+
+<p>The definition of a rectangle is a plane figure with four straight sides and four right angles, especially one with unequal adjacent sides, in contrast to a square.</p> 
+<img src="rectangle.jpg" alt="rectangle image" width="460">
+<h6> *feel free to use decimals, but no fractions please!</h6>
+<p>Enter the units that you are using <input type="text" id="units"></p>
+<p>Enter the length of side a. <input type="text" id="sideA"></p>
+<p>Enter the length of side b. <input type="text" id="sideB"></p>
+<p><button onclick="rectangleArea(document.getElementById('sideA').value,document.getElementById('sideB').value, document.getElementById('units').value)">Finish</button></p>
+<p id="rectangleArea"></p>
+
+<script>
+
+function rectangleArea(sideA, sideB, units){
+	var length;
+	length = sideA * sideB;
+	length = "The area of your rectangle is " + length + " " +  units;
+	document.getElementById('rectangleArea').innerHTML = length;
+}
+</script>
 
 </body>
 </html>

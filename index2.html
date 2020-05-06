@@ -1,0 +1,88 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+	body {
+		background-color: lavender;
+	}
+</style>
+	<title>Javascript Page 2</title>
+</head>
+<body>
+<h1>Cure Your Quarantine Boredom!</h1>
+
+<a href="index.html" target="_blank">click here to find the area of a rectangle!</a>
+
+<p>Answer the questions to find something to do today.</p>
+<hr>
+<p>On a scale from 1-10, how energized are you feeling? 1 is no energy, 10 is a ton of energy.</p>
+<p>
+	<select id="energy">
+		<option value="0"> </option>
+		<option value="1">1-3</option>
+		<option value="2">4-6</option>
+		<option value="3">7-8</option>
+		<option value="4">9-10</option>
+	</select>
+</p>
+<hr>
+<p>Which of these sounds most appealing to you right now?</p>
+<p>
+	<select id="activity">
+		<option value="0"> </option>
+		<option value="1">sleeping</option>
+		<option value="2">watching tv</option>
+		<option value="3">playing with a dog</option>
+		<option value="4">jump on a trampoline</option>
+	</select>
+</p>
+<hr>
+<p>In general, are you a lazy person? Pick the option that best suits you.</p>
+<p>
+	<select id="lazy">
+		<option value="0"> </option>
+		<option value="1">I am super lazy.</option>
+		<option value="2">I am mostly lazy, but I can be active at times.</option>
+		<option value="3">I am mostly active, but I am lazy sometimes.</option>
+		<option value="4">I am not lazy at all! I love to get out of bed every morning.</option>
+	</select>
+</p>
+
+
+
+<button onclick="
+	computeBoredom(
+		document.getElementById('energy').value,
+		document.getElementById('activity').value,
+		document.getElementById('lazy').value
+			)">How well?</button>
+
+
+
+<p id="putHere"></p>
+
+<script>
+
+function computeBoredom(energy,activity,lazy){
+	var energyNumber = Number(energy);
+	var activityNumber = Number(activity);
+	var lazyNumber = Number(lazy);
+	var boredomNumber = energyNumber + activityNumber + lazyNumber;
+	var boredomStatement = "";
+	if (boredomNumber <= 4){
+		boredomStatement = "You should probably do something chill that doesn't require any energy. Here are some options: Read, sleep, watch a movie/tv show, look at some old photos, sit outside in the sun, online shop."
+	} else if (boredomNumber > 4 && boredomNumber < 6) {
+		boredomStatement = "You should do something that gets you out of bed, but doesn't require a ton of energy. Here are some options: Facetime or zoom friends, bake/cook something, organize/clean your room, take some photos, try on new clothes."
+	} else if (boredomNumber >= 6 && boredomNumber <= 10) {
+		boredomStatement = "You should get up and move around! Here are some options: Go for a walk, play with your pet, learn a new dance, create a rube goldberg machine."
+	} else if (boredomNumber >= 11) {
+		boredomStatement = "Today, you should move around and exercise! Here are some options: workout/go for a run, create your own obstacle course, build something, climb a tree."
+	} 
+	document.getElementById('putHere').innerHTML = boredomStatement;
+}
+
+</script>
+
+
+</body>
+</html>
